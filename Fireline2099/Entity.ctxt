@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Entity
+comment0.text=\r\n\ Abstract\ Entity\ class\ for\ all\ game\ objects.\r\n
+comment1.params=dx\ dy
+comment1.target=void\ move(int,\ int)
+comment2.params=
+comment2.target=void\ shoot()
+numComments=3
