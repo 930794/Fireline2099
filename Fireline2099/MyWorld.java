@@ -4,6 +4,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * A vertical world for the game.
  */
 public class myWorld extends World {
+    public static int score;
+    private int numberofEnemies;
     public myWorld() {    
         super(600, 800, 1);  // Create a world with 600x800 cells, each 1x1 pixels
         populateWorld();
@@ -21,7 +23,15 @@ public class myWorld extends World {
         bossEnemy boss = new bossEnemy();
         addObject(boss, getWidth() / 2, 100);
     }
-
+    public void nextLevel(){
+        
+    }
+    public void checkEnemies(){
+        
+    }
+    public void gameOver(){
+        
+    }
     public void act() {
         // World-specific actions can go here
     }
