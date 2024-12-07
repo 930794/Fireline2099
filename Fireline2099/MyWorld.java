@@ -22,7 +22,7 @@ public class MyWorld extends World {
 
         // Add initial enemies
         for (int i = 0; i < 5; i++) {
-            Enemy enemy = new Enemy(10, 100, 20);
+            Enemy enemy = new Enemy(2, 100, 20);
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
             numberofEnemies++;
         }
@@ -40,7 +40,7 @@ public class MyWorld extends World {
 
         // Add regular enemies for the new stage
         for (int i = 0; i < 5 + stage; i++) { // Increase enemies as the stage progresses
-            Enemy enemy = new Enemy(10, 100 + stage * 10, 20 + stage * 2); // Enemies scale in difficulty
+            Enemy enemy = new Enemy(2, 100 + stage * 10, 20 + stage * 2); // Enemies scale in difficulty
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
             numberofEnemies++;
         }
@@ -60,9 +60,6 @@ public class MyWorld extends World {
 
     public void act() {
         // Display stats on the screen
-        showText("Score: " + score, 200, 200);
-        showText("Enemies: " + numberofEnemies, 200, 500);
-        showText("Level: " + stage, 200, 500);
         checkEnemies(); // Check if it's time to spawn a portal
     }
 }

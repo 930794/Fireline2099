@@ -19,7 +19,8 @@ public class Enemy extends Entity {
             if (player != null) {
                 // Move toward the Player
                 turnTowards(player.getX(), player.getY());
-                move(2);
+                move((int) Math.round(Math.cos(Math.toRadians(getRotation())) * speed), 
+                     (int) Math.round(Math.sin(Math.toRadians(getRotation())) * speed));
 
                 // Check for collision with the Player
                 if (intersects(player)) {
@@ -28,6 +29,7 @@ public class Enemy extends Entity {
             }
         }
     }
+
     public void act() {
         attackPlayer();
     }

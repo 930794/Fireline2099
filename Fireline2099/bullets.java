@@ -22,6 +22,12 @@ public class bullets extends Entity {
     public void act() {
         setLocation((int) (getX() + dx), (int) (getY() + dy));
 
+        // Check for collision with cover
+        if (isTouching(cover.class)) {
+            getWorld().removeObject(this);
+            return;
+        }
+
         // Check for collision with an enemy
         Actor enemy = getOneIntersectingObject(Enemy.class);
         if (enemy != null) {
