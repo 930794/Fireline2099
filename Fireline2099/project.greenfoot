@@ -1,5 +1,6 @@
 #Greenfoot project file
 class.Player.image=baby2.png
+class.bullets.image=ball.png
 class.cover.image=barrel.png
 class.portal.image=car03.png
 dependency1.from=MyWorld
