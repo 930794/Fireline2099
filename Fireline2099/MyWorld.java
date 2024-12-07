@@ -22,7 +22,7 @@ public class MyWorld extends World {
 
         // Add initial enemies
         for (int i = 0; i < 5; i++) {
-            Enemy enemy = new Enemy(2, 100, 20);
+            Enemy enemy = new Enemy(2, 100, 1);
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
             numberofEnemies++;
         }
@@ -33,17 +33,22 @@ public class MyWorld extends World {
 
         // If the stage is a multiple of 5, add a boss
         if (stage % 5 == 0) {
-            bossEnemy boss = new bossEnemy(10, 150, 30, special[0]); // Stronger boss stats
+            bossEnemy boss = new bossEnemy(10, 150, 30, special[Greenfoot.getRandomNumber(special.length)]); // Stronger boss stats
             addObject(boss, getWidth() / 2, 100);
             numberofEnemies++; // Count the boss as an enemy
         }
 
         // Add regular enemies for the new stage
         for (int i = 0; i < 5 + stage; i++) { // Increase enemies as the stage progresses
-            Enemy enemy = new Enemy(2, 100 + stage * 10, 20 + stage * 2); // Enemies scale in difficulty
+            Enemy enemy = new Enemy(2, 100 + stage * 10, 1 + stage * 2); // Enemies scale in difficulty
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
             numberofEnemies++;
         }
+    }
+
+    public void gameOver() {
+        showText("GAME OVER", getWidth() / 2, getHeight() / 2);
+        Greenfoot.stop(); // Stop the game
     }
 
     public void checkEnemies() {
@@ -61,5 +66,10 @@ public class MyWorld extends World {
     public void act() {
         // Display stats on the screen
         checkEnemies(); // Check if it's time to spawn a portal
+
+        // Check if the player exists (if not, trigger game over)
+        if (getObjects(Player.class).isEmpty()) {
+            gameOver();
+        }
     }
 }
