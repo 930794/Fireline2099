@@ -2,20 +2,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Player extends Entity {
     private int shootCooldown = 20;
-
+    
     public Player(int speed, int health, int attack) {
         this.speed = speed;
         this.health = health;
         this.attack = attack;
     }
-
     public void control() {
         if (Greenfoot.isKeyDown("left")) move(-speed, 0);
         if (Greenfoot.isKeyDown("right")) move(speed, 0);
         if (Greenfoot.isKeyDown("up")) move(0, -speed);
         if (Greenfoot.isKeyDown("down")) move(0, speed);
     }
-
     private void autoShoot() {
     if (shootCooldown > 0) {
         shootCooldown--;
@@ -33,9 +31,7 @@ public class Player extends Entity {
             shootCooldown = 20; // Reset cooldown
         }
     }
-}
-
-
+    }
     private Enemy findNearestEnemy() {
         Enemy nearestEnemy = null;
         double nearestDistance = Double.MAX_VALUE;
@@ -51,11 +47,9 @@ public class Player extends Entity {
 
         return nearestEnemy;
     }
-
     public void useSkill() {
         // Implement skill functionality if needed
     }
-
     public void act() {
         control();
         if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || 

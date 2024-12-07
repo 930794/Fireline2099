@@ -10,6 +10,8 @@ public abstract class Entity extends Actor {
         health -= damage;
         if (health <= 0) {
             getWorld().removeObject(this);
+            MyWorld.numberofEnemies-=1;
+            MyWorld.score+=1;
         }
     }
     public void move(int dx, int dy) {
