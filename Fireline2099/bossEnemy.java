@@ -5,20 +5,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class bossEnemy extends Enemy {
     private int specialAttackCooldown = 100;
-    public bossEnemy(int speed, int health, int attack, String specialAttack){
-        
+    private String specialAttack;
+
+    public bossEnemy(int speed, int health, int attack, String specialAttack) {
+        super(speed, health, attack); // Call superclass constructor
+        this.specialAttack = specialAttack;
     }
+
     public void useSpecialAttack() {
-        // Special attack logic
-        if (specialAttackCooldown == 0) {
+        if (specialAttackCooldown > 0) {
+            specialAttackCooldown--;
+        } else {
             System.out.println("Boss performs special attack!");
             specialAttackCooldown = 100;
         }
-        specialAttackCooldown--;
     }
 
     public void act() {
-        super.act();
+        super.act(); // Call superclass act method
         useSpecialAttack();
     }
 }

@@ -5,7 +5,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Entity {
     public Enemy(int speed, int health, int attack){
-        
+    this.speed = speed;
+    this.health = health;
+    this.attack = attack;        
     }
     public void attackPlayer() {
         // Basic enemy AI to move towards the player

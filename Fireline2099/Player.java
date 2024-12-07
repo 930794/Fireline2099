@@ -5,7 +5,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Entity {
     public Player(int speed, int health, int attack){
-        
+        this.speed = speed;
+        this.health = health;
+        this.attack = attack;
     }
     public void control() {
         if (Greenfoot.isKeyDown("left")) move(-speed, 0);
