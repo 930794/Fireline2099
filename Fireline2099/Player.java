@@ -10,10 +10,10 @@ public class Player extends Entity {
     }
 
     public void control() {
-        if (Greenfoot.isKeyDown("left")) move(-speed, 0);
-        if (Greenfoot.isKeyDown("right")) move(speed, 0);
-        if (Greenfoot.isKeyDown("up")) move(0, -speed);
-        if (Greenfoot.isKeyDown("down")) move(0, speed);
+        if (Greenfoot.isKeyDown("left")||Greenfoot.isKeyDown("a")) move(-speed, 0);
+        if (Greenfoot.isKeyDown("right")||Greenfoot.isKeyDown("d")) move(speed, 0);
+        if (Greenfoot.isKeyDown("up")||Greenfoot.isKeyDown("w")) move(0, -speed);
+        if (Greenfoot.isKeyDown("down")||Greenfoot.isKeyDown("s")) move(0, speed);
     }
 
     private void autoShoot() {
