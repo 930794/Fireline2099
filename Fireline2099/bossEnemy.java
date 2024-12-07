@@ -1,20 +1,30 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * BossEnemy class representing a more powerful enemy.
- */
 public class bossEnemy extends Enemy {
     private int specialAttackCooldown = 100;
-    public bossEnemy(int speed, int health, int attack, String specialAttack){
-        
+
+    public bossEnemy(int speed, int health, int attack, String specialAttack) {
+        this.speed = speed;
+        this.health = health;
+        this.attack = attack;
     }
-    public void useSpecialAttack() {
-        // Special attack logic
-        if (specialAttackCooldown == 0) {
-            System.out.println("Boss performs special attack!");
-            specialAttackCooldown = 100;
+
+    private void useSpecialAttack() {
+        if (specialAttackCooldown <= 0) {
+            Player player = findPlayer();
+            if (player != null) {
+                // Spawn a bullet aimed at the player
+                bullets specialBullet = new bullets(3, 0, attack, player);
+                getWorld().addObject(specialBullet, getX(), getY());
+            }
+            specialAttackCooldown = 100; // Reset cooldown
         }
         specialAttackCooldown--;
+    }
+
+    private Player findPlayer() {
+        java.util.List<Player> players = getWorld().getObjects(Player.class);
+        return players.isEmpty() ? null : players.get(0);
     }
 
     public void act() {

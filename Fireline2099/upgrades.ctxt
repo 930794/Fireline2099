@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=upgrades
+comment1.params=player
+comment1.target=void\ attackUp(Player)
+comment2.params=player
+comment2.target=void\ fastAttack(Player)
+comment3.params=player
+comment3.target=void\ heal(Player)
+comment4.params=player
+comment4.target=void\ addProjectile(Player)
+comment5.params=player
+comment5.target=void\ pierce(Player)
+comment6.params=
+comment6.target=void\ act()
+numComments=7

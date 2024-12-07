@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=bossEnemy
+comment1.params=speed\ health\ attack\ specialAttack
+comment1.target=bossEnemy(int,\ int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=void\ useSpecialAttack()
+comment3.params=
+comment3.target=void\ act()
+numComments=4

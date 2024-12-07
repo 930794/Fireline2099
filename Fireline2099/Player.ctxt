@@ -1,12 +1,13 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ Player\ class\ representing\ the\ main\ character.\r\n
 comment1.params=speed\ health\ attack
 comment1.target=Player(int,\ int,\ int)
 comment2.params=
 comment2.target=void\ control()
 comment3.params=
-comment3.target=void\ useSkill()
+comment3.target=void\ autoShoot()
 comment4.params=
-comment4.target=void\ act()
-numComments=5
+comment4.target=Enemy\ findNearestEnemy()
+comment5.params=
+comment5.target=void\ act()
+numComments=6
