@@ -1,22 +1,34 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class bullets here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class bullets extends Entity
-{
-    /**
-     * Act - do whatever the bullets wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public bullets(int speed, int health, int attack){
-        
+public class bullets extends Entity {
+    private double dx;
+    private double dy;
+
+    public bullets(int speed, int health, int attack) {
+        this.speed = speed;
+        this.attack = attack;
+        this.dx = 0;
+        this.dy = -speed; // Default straight up if no target
     }
-    public void act()
-    {
-        // Add your action code here.
+
+    public void setTarget(Actor target) {
+        if (target != null) {
+            double distance = Math.hypot(target.getX() - getX(), target.getY() - getY());
+            dx = (target.getX() - getX()) / distance * speed;
+            dy = (target.getY() - getY()) / distance * speed;
+        }
+    }
+
+    public void act() {
+        setLocation((int) (getX() + dx), (int) (getY() + dy));
+
+        // Check for collision with an enemy
+        Actor enemy = getOneIntersectingObject(Enemy.class);
+        if (enemy != null) {
+            ((Entity) enemy).takeDamage(attack);
+            getWorld().removeObject(this);
+        } else if (isAtEdge()) {
+            getWorld().removeObject(this); // Remove bullet if it goes off-screen
+        }
     }
 }
