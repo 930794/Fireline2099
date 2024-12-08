@@ -1,5 +1,6 @@
 import greenfoot.*;
 
+<<<<<<< Updated upstream
 public class upgradeVisuals extends upgrades {
     private String upgradeType;
 
@@ -34,5 +35,21 @@ public class upgradeVisuals extends upgrades {
             applyUpgrade((Player) player);
             getWorld().removeObject(this);
         }
+=======
+public class upgradeVisuals extends Actor {
+    private String upgrade;
+
+    public upgradeVisuals(String upgrade) {
+        this.upgrade = upgrade;
+        setImage(new GreenfootImage(upgrade, 24, Color.WHITE, Color.BLACK));
+    }
+
+    public String getUpgrade() {
+        return upgrade;
+    }
+
+    public void act() {
+        // No specific behavior yet; can be extended as needed
+>>>>>>> Stashed changes
     }
 }

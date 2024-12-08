@@ -1,9 +1,21 @@
 import greenfoot.*;  
 
+<<<<<<< Updated upstream
 public class myWorld extends World {
 <<<<<<< Updated upstream
     public myWorld() {    
         super(600, 800, 1);  // Create a world with 600x800 cells, each 1x1 pixels
+=======
+public class MyWorld extends World {
+    public static int score;
+    public static int numberofEnemies;
+    private int stage = 1;
+    private boolean upgradesActive = false; // To track if upgrades are being shown
+    Player player = new Player(10, 100, 50); // Initializes a player with 10 speed, 100 health, and 50 attack
+
+    public MyWorld() {    
+        super(500, 800, 1);
+>>>>>>> Stashed changes
         populateWorld();
     }
 
@@ -20,6 +32,7 @@ public class myWorld extends World {
     public myWorld() {    
         super(600, 800, 1);
         score = 0;
+<<<<<<< Updated upstream
         setupLevel();
     }
 
@@ -72,6 +85,59 @@ public class myWorld extends World {
         removeObjects(getObjects(upgradeVisuals.class)); // Clear upgrades
         level++;
         setupLevel();
+=======
+        numberofEnemies = 0;
+        for (int i = 0; i < 5; i++) {
+            Enemy enemy = new Enemy(2, 100, 1);
+            addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
+            numberofEnemies++;
+        }
+    }
+
+    public void nextLevel() {
+        stage++;
+        upgradesActive = true; // Flag that upgrade selection is active
+        showUpgradeOptions();
+
+        player.setLocation(getWidth() / 2, getHeight() - 50);
+        if (stage % 5 == 0) {
+            bossEnemy boss = new bossEnemy(10, 150, 30, "Fire");
+            addObject(boss, getWidth() / 2, 100);
+            numberofEnemies++;
+        }
+        for (int i = 0; i < 5 + stage; i++) {
+            Enemy enemy = new Enemy(2, 100 + stage * 10, 1 + stage * 2);
+            addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
+            numberofEnemies++;
+        }
+    }
+
+    private void showUpgradeOptions() {
+        upgrades upgradeMenu = new upgrades(this); // Pass reference to the world
+        addObject(upgradeMenu, getWidth() / 2, getHeight() / 2);
+    }
+
+    public void applyUpgrade() {
+        // Called after an upgrade is applied to the player
+        upgradesActive = false; // Resume game
+    }
+
+    public void removePortal(portal portal) {
+        removeObject(portal);
+        nextLevel();
+    }
+
+    public void checkEnemies() {
+        if (numberofEnemies == 0 && getObjects(portal.class).isEmpty() && !upgradesActive) {
+            portal portal = new portal();
+            addObject(portal, getWidth() / 2, getHeight() / 2);
+        }
+    }
+
+    public void gameOver() {
+        showText("GAME OVER", getWidth() / 2, getHeight() / 2);
+        Greenfoot.stop();
+>>>>>>> Stashed changes
     }
 
     public void gameOver() {
@@ -82,6 +148,16 @@ public class myWorld extends World {
 
 >>>>>>> Stashed changes
     public void act() {
+<<<<<<< Updated upstream
         checkEnemies();
+=======
+        // Freeze game logic while upgrades are active
+        if (upgradesActive) return;
+
+        checkEnemies();
+        if (getObjects(Player.class).isEmpty()) {
+            gameOver();
+        }
+>>>>>>> Stashed changes
     }
 }

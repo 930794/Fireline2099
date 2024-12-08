@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=upgrades
+<<<<<<< Updated upstream
 comment1.params=player
 comment1.target=void\ attackUp(Player)
 comment2.params=player
@@ -13,3 +14,14 @@ comment5.target=void\ pierce(Player)
 comment6.params=
 comment6.target=void\ act()
 numComments=7
+=======
+comment1.params=world
+comment1.target=upgrades(MyWorld)
+comment2.params=
+comment2.target=void\ displayUpgradeOptions()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=upgrade
+comment4.target=void\ applyUpgrade(java.lang.String)
+numComments=5
+>>>>>>> Stashed changes

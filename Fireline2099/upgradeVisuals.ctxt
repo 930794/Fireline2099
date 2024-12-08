@@ -1,9 +1,16 @@
 #BlueJ class context
 comment0.target=upgradeVisuals
+<<<<<<< Updated upstream
 comment1.params=upgradeType
 comment1.target=upgradeVisuals(java.lang.String)
 comment2.params=player
 comment2.target=void\ applyUpgrade(Player)
+=======
+comment1.params=upgrade
+comment1.target=upgradeVisuals(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getUpgrade()
+>>>>>>> Stashed changes
 comment3.params=
 comment3.target=void\ act()
 numComments=4

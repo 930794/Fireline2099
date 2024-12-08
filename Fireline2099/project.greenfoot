@@ -2,18 +2,29 @@
 dependency1.from=myWorld
 dependency1.to=Player
 dependency1.type=UsesDependency
+<<<<<<< Updated upstream
 dependency10.from=bossEnemy
 dependency10.to=bullets
+=======
+dependency10.from=Enemy
+dependency10.to=Player
+>>>>>>> Stashed changes
 dependency10.type=UsesDependency
 dependency11.from=bullets
-dependency11.to=Enemy
+dependency11.to=cover
 dependency11.type=UsesDependency
+<<<<<<< Updated upstream
 dependency12.from=portal
 dependency12.to=myWorld
+=======
+dependency12.from=bullets
+dependency12.to=Enemy
+>>>>>>> Stashed changes
 dependency12.type=UsesDependency
 dependency13.from=portal
 dependency13.to=Player
 dependency13.type=UsesDependency
+<<<<<<< Updated upstream
 dependency14.from=upgrades
 dependency14.to=Player
 dependency14.type=UsesDependency
@@ -21,11 +32,27 @@ dependency15.from=upgradeVisuals
 dependency15.to=Player
 dependency15.type=UsesDependency
 dependency2.from=myWorld
+=======
+dependency14.from=portal
+dependency14.to=MyWorld
+dependency14.type=UsesDependency
+dependency15.from=upgrades
+dependency15.to=MyWorld
+dependency15.type=UsesDependency
+dependency16.from=upgrades
+dependency16.to=upgradeVisuals
+dependency16.type=UsesDependency
+dependency17.from=upgrades
+dependency17.to=Player
+dependency17.type=UsesDependency
+dependency2.from=MyWorld
+>>>>>>> Stashed changes
 dependency2.to=Enemy
 dependency2.type=UsesDependency
 dependency3.from=myWorld
 dependency3.to=bossEnemy
 dependency3.type=UsesDependency
+<<<<<<< Updated upstream
 dependency4.from=myWorld
 dependency4.to=upgradeVisuals
 dependency4.type=UsesDependency
@@ -52,13 +79,36 @@ dependency8.to=Player
 dependency8.type=UsesDependency
 dependency9.from=bossEnemy
 dependency9.to=Player
+=======
+dependency4.from=MyWorld
+dependency4.to=upgrades
+dependency4.type=UsesDependency
+dependency5.from=MyWorld
+dependency5.to=portal
+dependency5.type=UsesDependency
+dependency6.from=Entity
+dependency6.to=MyWorld
+dependency6.type=UsesDependency
+dependency7.from=Entity
+dependency7.to=cover
+dependency7.type=UsesDependency
+dependency8.from=Player
+dependency8.to=Enemy
+dependency8.type=UsesDependency
+dependency9.from=Player
+dependency9.to=bullets
+>>>>>>> Stashed changes
 dependency9.type=UsesDependency
 editor.fx.0.height=1056
 editor.fx.0.width=1936
 editor.fx.0.x=-8
 editor.fx.0.y=-8
 height=1056
+<<<<<<< Updated upstream
 package.numDependencies=15
+=======
+package.numDependencies=17
+>>>>>>> Stashed changes
 package.numTargets=10
 >>>>>>> Stashed changes
 project.charset=UTF-8

@@ -42,7 +42,39 @@ private Enemy findNearestEnemy() {
     return nearest;
 }
 
+<<<<<<< Updated upstream
+=======
+        for (Object obj : getWorld().getObjects(Enemy.class)) {
+            Enemy enemy = (Enemy) obj;
+            double distance = Math.hypot(enemy.getX() - getX(), enemy.getY() - getY());
+            if (distance < nearestDistance) {
+                nearestDistance = distance;
+                nearestEnemy = enemy;
+            }
+        }
 
+        return nearestEnemy;
+    }
+    public void increaseAttack(int amount) {
+        attack += amount;
+    }
+>>>>>>> Stashed changes
+
+    public void decreaseShootCooldown(int amount) {
+        shootCooldown = Math.max(1, shootCooldown - amount);
+    }
+
+    public void heal(int amount) {
+        health = Math.min(health + amount, 100); // Assume max health is 100
+    }
+
+    public void addProjectile() {
+        // Implement logic to fire additional projectiles
+    }
+
+    public void enablePiercing() {
+        // Implement logic for piercing bullets
+    }
     public void act() {
         control();
         if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || 
