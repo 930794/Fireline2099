@@ -54,7 +54,8 @@ public class Player extends Entity {
     public void act() {
         control();
         if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || 
-              Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down"))) {
+              Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down")||
+              Greenfoot.isKeyDown("a")||Greenfoot.isKeyDown("d")||Greenfoot.isKeyDown("w")||Greenfoot.isKeyDown("s"))) {
             autoShoot();
         }
     }
