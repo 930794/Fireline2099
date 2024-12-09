@@ -7,8 +7,8 @@ public class MyWorld extends World {
     public static int score;
     public static int numberofEnemies;
     private int stage = 1;
-    private String[] special = {"Fire"};
-    Player player = new Player(10, 100, 20); // Initializes a player with 10 speed, 100 health, and 20 attack
+    private String[] special = {"Fire","Ice","Earth","Water","Wind"};
+    Player player = new Player(10, 100, 100); // Initializes a player with 10 speed, 100 health, and 20 attack
     public MyWorld() {    
         super(400, 600, 1);  // Create a world with 500x800 cells, each 1x1 pixels
         populateWorld();
@@ -47,18 +47,18 @@ public class MyWorld extends World {
         showText("GAME OVER", getWidth() / 2, getHeight() / 2);
         Greenfoot.stop(); // Stop the game
     }
-    static void resetGame(){ // Stops the program, then stops music and sets up a new world
+    public static void resetGame(){ // Stops the program, then stops music and sets up a new world
         Greenfoot.stop();
         Greenfoot.setWorld(new MyWorld());
     }
-    void instructions(){ // Display instructions for the player
+    public void instructions(){ // Display instructions for the player
         showText("Left/Right Arrow Keys To Move", 1, 1);
         showText("A/D Keys To Move", 1, 2);
         showText("Collect Apples", 1, 3);
         showText("Avoid Bombs", 1, 4);
         showText("Have Fun!", 1, 5);
     }
-    void removeInstructions(){ // Removes the instructions if moved by replacing them with blanks
+    public void removeInstructions(){ // Removes the instructions if moved by replacing them with blanks
         if (Greenfoot.getKey() != null){
             showText("", 1, 1);
             showText("", 1, 2);
