@@ -10,7 +10,7 @@ public class MyWorld extends World {
     private String[] special = {"Fire"};
     Player player = new Player(10, 100, 20); // Initializes a player with 10 speed, 100 health, and 20 attack
     public MyWorld() {    
-        super(500, 800, 1);  // Create a world with 500x800 cells, each 1x1 pixels
+        super(400, 600, 1);  // Create a world with 500x800 cells, each 1x1 pixels
         populateWorld();
     }
     public void populateWorld() {
