@@ -10,7 +10,6 @@ public class bullets extends Entity {
         this.dx = 0;
         this.dy = -speed; // Default straight up if no target
     }
-
     public void setTarget(Actor target) {
         if (target != null) {
             double distance = Math.hypot(target.getX() - getX(), target.getY() - getY());
@@ -18,7 +17,6 @@ public class bullets extends Entity {
             dy = (target.getY() - getY()) / distance * speed;
         }
     }
-
     public void act() {
         setLocation((int) (getX() + dx), (int) (getY() + dy));
 

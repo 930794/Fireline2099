@@ -11,7 +11,6 @@ public class bossEnemy extends Enemy {
         super(speed, health, attack); // Call superclass constructor
         this.specialAttack = specialAttack;
     }
-
     public void useSpecialAttack() {
         if (specialAttackCooldown > 0) {
             specialAttackCooldown--;
@@ -20,7 +19,6 @@ public class bossEnemy extends Enemy {
             specialAttackCooldown = 100;
         }
     }
-
     public void act() {
         super.act(); // Call superclass act method
         useSpecialAttack();

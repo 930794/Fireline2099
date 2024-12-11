@@ -9,7 +9,6 @@ public class Enemy extends Entity {
         this.health = health;
         this.attack = attack;        
     }
-
     public void attackPlayer() {
         // Check if there is at least one Player in the world
         if (!getWorld().getObjects(Player.class).isEmpty()) {
@@ -29,7 +28,6 @@ public class Enemy extends Entity {
             }
         }
     }
-
     public void act() {
         attackPlayer();
     }

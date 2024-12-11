@@ -10,7 +10,7 @@ public class MyWorld extends World {
     private String[] special = {"Fire","Ice","Earth","Water","Wind"};
     Player player = new Player(10, 100, 100); // Initializes a player with 10 speed, 100 health, and 20 attack
     public MyWorld() {    
-        super(400, 600, 1);  // Create a world with 500x800 cells, each 1x1 pixels
+        super(400, 600, 1);  // Create a world with 400x600 cells, each 1x1 pixels
         populateWorld();
     }
     public void populateWorld() {
@@ -24,7 +24,6 @@ public class MyWorld extends World {
             numberofEnemies++;
         }
     }
-
     public void nextLevel() {
         stage++; // Increment the stage number
         player.setLocation(getWidth() / 2, getHeight() - 50);
@@ -42,7 +41,6 @@ public class MyWorld extends World {
             numberofEnemies++;
         }
     }
-
     public void gameOver() {
         showText("GAME OVER", getWidth() / 2, getHeight() / 2);
         Greenfoot.stop(); // Stop the game
@@ -51,35 +49,16 @@ public class MyWorld extends World {
         Greenfoot.stop();
         Greenfoot.setWorld(new MyWorld());
     }
-    public void instructions(){ // Display instructions for the player
-        showText("Left/Right Arrow Keys To Move", 1, 1);
-        showText("A/D Keys To Move", 1, 2);
-        showText("Collect Apples", 1, 3);
-        showText("Avoid Bombs", 1, 4);
-        showText("Have Fun!", 1, 5);
-    }
-    public void removeInstructions(){ // Removes the instructions if moved by replacing them with blanks
-        if (Greenfoot.getKey() != null){
-            showText("", 1, 1);
-            showText("", 1, 2);
-            showText("", 1, 3);
-            showText("", 1, 4);
-            showText("", 1, 5);
-        }
-    }
-
     public void checkEnemies() {
         if (numberofEnemies == 0 && getObjects(portal.class).isEmpty()) { // Spawn portal only if none exists
             portal portal = new portal();
             addObject(portal, getWidth()/2, getHeight()-getHeight()); // Center the portal
         }
     }
-
     public void removePortal(portal portal) {
         removeObject(portal); // Remove the portal after interaction
         nextLevel(); // Move to the next level
     }
-
     public void act() {
         // Display stats on the screen
         checkEnemies(); // Check if it's time to spawn a portal

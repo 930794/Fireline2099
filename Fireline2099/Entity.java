@@ -13,7 +13,6 @@ public abstract class Entity extends Actor {
             MyWorld.score++;
         }
     }
-
     public void move(int dx, int dy) {
         int oldX = getX();
         int oldY = getY();

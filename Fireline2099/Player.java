@@ -8,14 +8,12 @@ public class Player extends Entity {
         this.health = health;
         this.attack = attack;
     }
-
     public void control() {
         if (Greenfoot.isKeyDown("left")||Greenfoot.isKeyDown("a")) move(-speed, 0);
         if (Greenfoot.isKeyDown("right")||Greenfoot.isKeyDown("d")) move(speed, 0);
         if (Greenfoot.isKeyDown("up")||Greenfoot.isKeyDown("w")) move(0, -speed);
         if (Greenfoot.isKeyDown("down")||Greenfoot.isKeyDown("s")) move(0, speed);
     }
-
     private void autoShoot() {
         if (shootCooldown > 0) {
             shootCooldown--;
@@ -34,7 +32,6 @@ public class Player extends Entity {
             }
         }
     }
-
     private Enemy findNearestEnemy() {
         Enemy nearestEnemy = null;
         double nearestDistance = Double.MAX_VALUE;
@@ -50,7 +47,6 @@ public class Player extends Entity {
 
         return nearestEnemy;
     }
-
     public void act() {
         control();
         if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || 
