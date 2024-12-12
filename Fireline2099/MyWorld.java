@@ -45,8 +45,7 @@ public class MyWorld extends World {
         showText("GAME OVER", getWidth() / 2, getHeight() / 2);
         Greenfoot.stop(); // Stop the game
     }
-    public static void resetGame(){ // Stops the program, then stops music and sets up a new world
-        Greenfoot.stop();
+    public static void resetGame(){ // Stops the program, then stops music and sets up a new world (not used yet)
         Greenfoot.setWorld(new MyWorld());
     }
     public void checkEnemies() {
