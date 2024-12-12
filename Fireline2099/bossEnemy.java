@@ -8,7 +8,7 @@ public class bossEnemy extends Enemy {
     private String specialAttack;
 
     public bossEnemy(int speed, int health, int attack, String specialAttack) {
-        super(speed, health, attack); // Call superclass constructor
+        super(speed, health, attack); // Call superclass constructor to add the parameter variables
         this.specialAttack = specialAttack;
     }
     public void useSpecialAttack() {

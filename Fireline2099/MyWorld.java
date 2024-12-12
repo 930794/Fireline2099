@@ -28,11 +28,11 @@ public class MyWorld extends World {
         stage++; // Increment the stage number
         player.setLocation(getWidth() / 2, getHeight() - 50);
         // If the stage is a multiple of 5, add a boss
-        if (stage % 5 == 0) {
-            bossEnemy boss = new bossEnemy(10, 150, 30, special[Greenfoot.getRandomNumber(special.length)]); // Stronger boss stats
-            addObject(boss, getWidth() / 2, 100);
-            numberofEnemies++; // Count the boss as an enemy
-        }
+        //if (stage % 5 == 0) {
+           // bossEnemy boss = new bossEnemy(10, 150, 30, special[Greenfoot.getRandomNumber(special.length)]); // Stronger boss stats
+          //  addObject(boss, getWidth() / 2, 100);
+         //   numberofEnemies++; // Count the boss as an enemy
+        //}
 
         // Add regular enemies for the new stage
         for (int i = 0; i < 5 + stage; i++) { // Increase enemies as the stage progresses
