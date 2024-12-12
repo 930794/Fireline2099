@@ -1,6 +1,5 @@
-In this game you play as a lost Cyber Soldier on Mars facing his PTSD from the great Space Wars of 2077. 
-His unrelenting psychosis results in him shooting all foreign Aliens as they try to kill him. 
-Lost on the expansive surface of Mars, the Cyber Soldier tries to escape his fate of death by exploring portals.
-Although he does not know yet that there is no escape from the horrors of trauma. 
+In this game you play as the Cyber Soldier, a shell of a man that is lost on the desolate Martian surface and is haunted by the horrors of the Great Space Wars of 2077. His mind, a battlefield scarred by trauma, perceives every alien drone as an enemy, a projection of his inner turmoil. Driven by a relentless psychosis, he fires indiscriminately, each shot a desperate attempt to silence the echoes of the past. As he wanders the Martian expanse, he stumbles upon enigmatic portals, a glimmer of hope in the vast, red expanse. Yet, these portals are merely fleeting distractions, unable to offer true escape from the clutches of his shattered psyche. 
 
-You control the Cyber Soldier with the WASD keys or the Arrow keys, the Cyber Soldier will accept all your inputs.
+You as the Player assume the role of this tormented soldier, navigating the alien landscape and confronting the demons within. With every step, every encounter, and every trigger, players experience the weight of the Cyber Soldier's PTSD, a haunting reminder that even on the desolate frontier of Mars, the scars of war run deep.
+
+You assume control with the arrow keys or WASD, with the sole mission of eliminating all embers of the past.
