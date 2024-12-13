@@ -7,7 +7,7 @@ public class MyWorld extends World {
     public static int score;
     public static int numberofEnemies;
     private int stage = 1;
-    private String[] special = {"Fire","Ice","Earth","Water","Wind"};
+    //private String[] special = {"Fire","Ice","Earth","Water","Wind"};
     Player player = new Player(10, 100, 20); // Initializes a player with 10 speed, 100 health, and 20 attack
     public MyWorld() {    
         super(400, 600, 1);  // Create a world with 400x600 cells, each 1x1 pixels
@@ -49,9 +49,9 @@ public class MyWorld extends World {
         Greenfoot.setWorld(new MyWorld());
     }
     public void checkEnemies() {
-        if (numberofEnemies == 0 && getObjects(portal.class).isEmpty()) { // Spawn portal only if none exists
+        if (numberofEnemies == 0 && getObjects(portal.class).isEmpty()) { // Spawn portal only if no enemies exists
             portal portal = new portal();
-            addObject(portal, getWidth()/2, getHeight()-getHeight()); // Center the portal
+            addObject(portal, getWidth()/2, getHeight()-getHeight());
         }
     }
     public void removePortal(portal portal) {

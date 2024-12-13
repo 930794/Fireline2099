@@ -13,6 +13,7 @@ public class bullets extends Entity {
     public void setTarget(Actor target) {
         if (target != null) {
             double distance = Math.hypot(target.getX() - getX(), target.getY() - getY());
+            //Normalize the vector and multiply by speed value
             dx = (target.getX() - getX()) / distance * speed;
             dy = (target.getY() - getY()) / distance * speed;
         }
@@ -26,7 +27,7 @@ public class bullets extends Entity {
             return;
         }
 
-        // Check for collision with an enemy
+        // Check for collision with an enemy or cover
         Actor enemy = getOneIntersectingObject(Enemy.class);
         if (enemy != null) {
             ((Entity) enemy).takeDamage(attack);
