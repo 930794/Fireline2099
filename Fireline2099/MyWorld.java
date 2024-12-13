@@ -8,7 +8,7 @@ public class MyWorld extends World {
     public static int numberofEnemies;
     private int stage = 1;
     private String[] special = {"Fire","Ice","Earth","Water","Wind"};
-    Player player = new Player(10, 100, 100); // Initializes a player with 10 speed, 100 health, and 20 attack
+    Player player = new Player(10, 100, 20); // Initializes a player with 10 speed, 100 health, and 20 attack
     public MyWorld() {    
         super(400, 600, 1);  // Create a world with 400x600 cells, each 1x1 pixels
         populateWorld();
