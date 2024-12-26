@@ -47,6 +47,28 @@ public class Player extends Entity {
 
         return nearestEnemy;
     }
+    public void increaseAttack(int amount) {
+    attack += amount;
+}
+
+public void decreaseShootCooldown(int amount) {
+    if (shootCooldown > 1) {
+        shootCooldown -= amount;
+    }
+}
+
+public void heal(int amount) {
+    health += amount;
+}
+
+public void addProjectile() {
+    // Add functionality to shoot multiple projectiles
+}
+
+public void increasePierce() {
+    // Add functionality to allow bullets to pierce more enemies
+}
+
     public void act() {
         control();
         if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || 
