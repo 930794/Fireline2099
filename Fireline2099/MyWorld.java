@@ -7,12 +7,15 @@ public class MyWorld extends World {
     public static int score;
     public static int numberofEnemies;
     private int stage = 1;
-    private String[] special = {"Fire","Ice","Earth","Water","Wind"};
+    private String[] special = {"Fire", "Ice", "Earth", "Water", "Wind"};
+    private boolean upgradesSelected = false; // Track if an upgrade has been selected
     Player player = new Player(10, 100, 1000); // Initializes a player with 10 speed, 100 health, and 20 attack
+
     public MyWorld() {    
         super(400, 600, 1);  // Create a world with 400x600 cells, each 1x1 pixels
         populateWorld();
     }
+
     public void populateWorld() {
         addObject(player, getWidth() / 2, getHeight() - 50);
         score = 0;
@@ -24,8 +27,10 @@ public class MyWorld extends World {
             numberofEnemies++;
         }
     }
+
     public void nextLevel() {
         stage++; // Increment the stage number
+        upgradesSelected = false; // Reset the upgrade selection flag
         player.setLocation(getWidth() / 2, getHeight() - 50);
         // If the stage is a multiple of 5, add a boss
         if (stage % 5 == 0) {
@@ -41,30 +46,40 @@ public class MyWorld extends World {
             numberofEnemies++;
         }
     }
+
     public void gameOver() {
         showText("GAME OVER", getWidth() / 2, getHeight() / 2);
         Greenfoot.stop(); // Stop the game
     }
-    public static void resetGame(){ // Stops the program, then stops music and sets up a new world (not used yet)
+
+    public static void resetGame() { // Stops the program, then stops music and sets up a new world (not used yet)
         Greenfoot.setWorld(new MyWorld());
     }
-    public void checkEnemies() {
-    if (numberofEnemies == 0 && getObjects(portal.class).isEmpty()) { // Spawn portal only if no enemies exist
-        portal portal = new portal();
-        addObject(portal, getWidth() / 2, getHeight() - getHeight());
 
-        // Add upgrade options
-        for (int i = 0; i < 3; i++) { // Show 3 random upgrade options
-            upgrades upgrade = new upgrades();
-            upgrade.setUpgradeType(Greenfoot.getRandomNumber(5)); // Randomly assign an upgrade type (0-4)
-            addObject(upgrade, 100 + i * 100, getHeight() / 2);
+    public void checkEnemies() {
+        if (numberofEnemies == 0 && !upgradesSelected && getObjects(upgrades.class).isEmpty()) {
+            // Add upgrade options
+            for (int i = 0; i < 3; i++) { // Show 3 random upgrade options
+                upgrades upgrade = new upgrades();
+                upgrade.setUpgradeType(Greenfoot.getRandomNumber(5)); // Randomly assign an upgrade type (0-4)
+                addObject(upgrade, 100 + i * 100, getHeight() / 2);
+            }
+        } else if (upgradesSelected && getObjects(portal.class).isEmpty()) {
+            // Spawn portal only after upgrades are selected
+            portal portal = new portal();
+            addObject(portal, getWidth() / 2, getHeight() - getHeight());
         }
     }
-}
+
+    public void setUpgradesSelected() {
+        upgradesSelected = true; // Called when an upgrade is selected
+    }
+
     public void removePortal(portal portal) {
         removeObject(portal); // Remove the portal after interaction
         nextLevel(); // Move to the next level
     }
+
     public void act() {
         // Display stats on the screen
         checkEnemies(); // Check if it's time to spawn a portal
