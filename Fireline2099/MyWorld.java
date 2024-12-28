@@ -9,6 +9,9 @@ public class MyWorld extends World {
     private int stage = 1;
     private String[] special = {"Fire", "Ice", "Earth", "Water", "Wind"};
     private boolean upgradesSelected = false; // Track if an upgrade has been selected
+    private boolean devMode = true; // Toggle developer mode here
+    private static final int NUM_COVER = 5; // Number of cover objects per stage
+
     Player player = new Player(10, 100, 1000); // Initializes a player with 10 speed, 100 health, and 20 attack
 
     public MyWorld() {    
@@ -26,12 +29,25 @@ public class MyWorld extends World {
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
             numberofEnemies++;
         }
+        placeRandomCovers(); // Add initial covers
+    }
+
+    public void placeRandomCovers() {
+        // Remove existing covers
+        removeObjects(getObjects(cover.class));
+        // Add random cover objects
+        for (int i = 0; i < NUM_COVER; i++) {
+            cover newCover = new cover();
+            addObject(newCover, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 4)+getHeight() / 4);
+        }
     }
 
     public void nextLevel() {
         stage++; // Increment the stage number
         upgradesSelected = false; // Reset the upgrade selection flag
         player.setLocation(getWidth() / 2, getHeight() - 50);
+        placeRandomCovers(); // Reposition cover objects
+
         // If the stage is a multiple of 5, add a boss
         if (stage % 5 == 0) {
             bossEnemy boss = new bossEnemy(10, 150, 30, special[Greenfoot.getRandomNumber(special.length)]); // Stronger boss stats
@@ -61,7 +77,7 @@ public class MyWorld extends World {
             // Add upgrade options
             for (int i = 0; i < 3; i++) { // Show 3 random upgrade options
                 upgrades upgrade = new upgrades();
-                upgrade.setUpgradeType(Greenfoot.getRandomNumber(5)); // Randomly assign an upgrade type (0-4)
+                upgrade.setUpgradeType(Greenfoot.getRandomNumber(3)); // Randomly assign an upgrade type (0-2)
                 addObject(upgrade, 100 + i * 100, getHeight() / 2);
             }
         } else if (upgradesSelected && getObjects(portal.class).isEmpty()) {
@@ -80,8 +96,23 @@ public class MyWorld extends World {
         nextLevel(); // Move to the next level
     }
 
+    public void displayStats() {
+        // Display player's health, score, and stage level
+        showText("Health: " + player.health, 100, 20);
+        showText("Score: " + score, getWidth() / 2, 20);
+        showText("Stage: " + stage, getWidth() - 100, 20);
+
+        // Display detailed player stats if devMode is enabled
+        if (devMode) {
+            showText("Speed: " + player.speed, 100, 40);
+            showText("Attack: " + player.attack, 100, 60);
+            showText("Shoot Cooldown: " + player.shootCooldown, 100, 80);
+        }
+    }
+
     public void act() {
         // Display stats on the screen
+        displayStats();
         checkEnemies(); // Check if it's time to spawn a portal
 
         // Check if the player exists (if not, trigger game over)

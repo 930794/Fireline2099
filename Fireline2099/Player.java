@@ -1,37 +1,35 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot, and MouseInfo)
 
 public class Player extends Entity {
-    private int shootCooldown = 20;
-    
+    public int shootCooldown = 20;
+
     public Player(int speed, int health, int attack) {
         this.speed = speed;
         this.health = health;
         this.attack = attack;
     }
+
     public void control() {
-        if (Greenfoot.isKeyDown("left")||Greenfoot.isKeyDown("a")) move(-speed, 0);
-        if (Greenfoot.isKeyDown("right")||Greenfoot.isKeyDown("d")) move(speed, 0);
-        if (Greenfoot.isKeyDown("up")||Greenfoot.isKeyDown("w")) move(0, -speed);
-        if (Greenfoot.isKeyDown("down")||Greenfoot.isKeyDown("s")) move(0, speed);
+        if (Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) move(-speed, 0);
+        if (Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) move(speed, 0);
+        if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")) move(0, -speed);
+        if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s")) move(0, speed);
     }
+
     private void autoShoot() {
         if (shootCooldown > 0) {
             shootCooldown--;
         } else {
-            // Find the nearest enemy
             Enemy nearestEnemy = findNearestEnemy();
             if (nearestEnemy != null) {
-                // Create the bullet and add it to the world first
                 bullets bullet = new bullets(5, 1, attack);
                 getWorld().addObject(bullet, getX(), getY());
-
-                // Set the target after the bullet is in the world
                 bullet.setTarget(nearestEnemy);
-
                 shootCooldown = 20; // Reset cooldown
             }
         }
     }
+
     private Enemy findNearestEnemy() {
         Enemy nearestEnemy = null;
         double nearestDistance = Double.MAX_VALUE;
@@ -47,33 +45,26 @@ public class Player extends Entity {
 
         return nearestEnemy;
     }
+
     public void increaseAttack(int amount) {
-    attack += amount;
-}
-
-public void decreaseShootCooldown(int amount) {
-    if (shootCooldown > 1) {
-        shootCooldown -= amount;
+        attack += amount;
     }
-}
 
-public void heal(int amount) {
-    health += amount;
-}
+    public void decreaseShootCooldown(int amount) {
+        if (shootCooldown > 1) {
+            shootCooldown -= amount;
+        }
+    }
 
-public void addProjectile() {
-    // Add functionality to shoot multiple projectiles
-}
-
-public void increasePierce() {
-    // Add functionality to allow bullets to pierce more enemies
-}
+    public void heal(int amount) {
+        health += amount;
+    }
 
     public void act() {
         control();
-        if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || 
-              Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down")||
-              Greenfoot.isKeyDown("a")||Greenfoot.isKeyDown("d")||Greenfoot.isKeyDown("w")||Greenfoot.isKeyDown("s"))) {
+        if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") ||
+              Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down") ||
+              Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("s"))) {
             autoShoot();
         }
     }
