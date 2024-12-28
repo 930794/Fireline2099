@@ -1,24 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * BossEnemy class representing a more powerful enemy.
- */
 public class bossEnemy extends Enemy {
-    private int specialAttackCooldown = 100;
-    private String specialAttack;
+    private int specialAttackCooldown = 100; // Cooldown for special attack
+    private String specialAttackImage; // Path to the special attack image
+    private int aoeDamage = 50; // Damage dealt by the AOE attack
 
-    public bossEnemy(int speed, int health, int attack, String specialAttack) {
-        super(speed, health, attack); // Call superclass constructor to add the parameter variables
-        this.specialAttack = specialAttack;
+    public bossEnemy(int speed, int health, int attack, String specialAttackImage) {
+        super(speed, health, attack); // Call superclass constructor
+        this.specialAttackImage = specialAttackImage; // Store the attack image path
     }
+
     public void useSpecialAttack() {
         if (specialAttackCooldown > 0) {
             specialAttackCooldown--;
         } else {
-            System.out.println("Boss performs special attack!");
-            specialAttackCooldown = 100;
+            // Create a visual representation of the special attack
+            SpecialEffect effect = new SpecialEffect(specialAttackImage, aoeDamage);
+            getWorld().addObject(effect, getX(), getY());
+            
+            // Reset the cooldown
+            specialAttackCooldown = 200; // Longer cooldown for boss specials
         }
     }
+
     public void act() {
         super.act(); // Call superclass act method
         useSpecialAttack();

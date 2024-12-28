@@ -1,7 +1,6 @@
 #BlueJ class context
 comment0.target=bossEnemy
-comment0.text=\r\n\ BossEnemy\ class\ representing\ a\ more\ powerful\ enemy.\r\n
-comment1.params=speed\ health\ attack\ specialAttack
+comment1.params=speed\ health\ attack\ specialAttackImage
 comment1.target=bossEnemy(int,\ int,\ int,\ java.lang.String)
 comment2.params=
 comment2.target=void\ useSpecialAttack()

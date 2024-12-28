@@ -7,7 +7,7 @@ public class MyWorld extends World {
     public static int score;
     public static int numberofEnemies;
     private int stage = 1;
-    private String[] special = {"Fire", "Ice", "Earth", "Water", "Wind"};
+    private String[] special = {"fire.png", "ice.png", "earth.png", "water.png", "wind.png"};
     private boolean upgradesSelected = false; // Track if an upgrade has been selected
     private boolean devMode = true; // Toggle developer mode here
     private static final int NUM_COVER = 5; // Number of cover objects per stage
