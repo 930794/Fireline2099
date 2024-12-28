@@ -1,36 +1,31 @@
 import greenfoot.*; 
 public class Player extends Entity {
     public int shootCooldown = 20;
-
-    private GreenfootImage[] walkFrames = new GreenfootImage[6]; // Array for 6 walking frames
-    private GreenfootImage idle = new GreenfootImage("idle.png"); // Idle frame
-    private int animationFrame = 0; // Tracks the current animation frame
-    private int animationCounter = 0; // Controls animation speed
-
+    private GreenfootImage[] walkFrames = new GreenfootImage[6];
+    private GreenfootImage idle = new GreenfootImage("idle.png");
+    private int animationFrame = 0;
+    private int animationCounter = 0;
+    private boolean facingRight = true;
     public Player(int speed, int health, int attack) {
         this.speed = speed;
         this.health = health;
         this.attack = attack;
-
-        // Load walking animation frames
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < walkFrames.length; i++) {
             walkFrames[i] = new GreenfootImage("walk" + (i + 1) + ".png");
         }
-
-        setImage(idle); // Set initial image to idle
+        setImage(idle);
     }
-
     public void control() {
         boolean isMoving = false;
-
-        // Movement logic
         if (Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) {
             move(-speed, 0);
             isMoving = true;
+            faceDirection(false);
         }
         if (Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) {
             move(speed, 0);
             isMoving = true;
+            faceDirection(true);
         }
         if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")) {
             move(0, -speed);
@@ -40,25 +35,28 @@ public class Player extends Entity {
             move(0, speed);
             isMoving = true;
         }
-
-        // Animation logic
         if (isMoving) {
             animateWalking();
         } else {
-            setImage(idle); // Reset to idle when not moving
+            setImage(idle);
         }
     }
-
+    private void faceDirection(boolean right) {
+        if (facingRight != right) {
+            facingRight = right;
+            for (int i = 0; i < walkFrames.length; i++) {
+                walkFrames[i].mirrorHorizontally();
+            }
+            idle.mirrorHorizontally();
+        }
+    }
     private void animateWalking() {
         animationCounter++;
-
-        // Adjust animation speed by changing the modulus value
         if (animationCounter % 5 == 0) {
-            setImage(walkFrames[animationFrame]); // Set current frame
-            animationFrame = (animationFrame + 1) % walkFrames.length; // Cycle through frames
+            setImage(walkFrames[animationFrame]); 
+            animationFrame = (animationFrame + 1) % walkFrames.length;
         }
     }
-
     private void autoShoot() {
         if (shootCooldown > 0) {
             shootCooldown--;
@@ -72,7 +70,6 @@ public class Player extends Entity {
             }
         }
     }
-
     private Enemy findNearestEnemy() {
         Enemy nearestEnemy = null;
         double nearestDistance = Double.MAX_VALUE;
@@ -86,21 +83,17 @@ public class Player extends Entity {
         }
         return nearestEnemy;
     }
-
     public void increaseAttack(int amount) {
         attack += amount;
     }
-
     public void decreaseShootCooldown(int amount) {
         if (shootCooldown > 1) {
             shootCooldown -= amount;
         }
     }
-
     public void heal(int amount) {
         health += amount;
     }
-
     public void act() {
         control();
         if (!(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down") ||

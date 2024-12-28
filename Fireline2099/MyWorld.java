@@ -57,16 +57,13 @@ public class MyWorld extends World {
     }
     public void checkEnemies() {
         if (numberofEnemies == 0 && !upgradesSelected && getObjects(upgrades.class).isEmpty()) {
-            
             for (int i = 0; i < 3; i++) { 
-                upgrades upgrade = new upgrades();
-                upgrade.setUpgradeType(Greenfoot.getRandomNumber(3));
+                upgrades upgrade = new upgrades(i);
                 addObject(upgrade, 100 + i * 100, getHeight() / 2);
             }
         } else if (upgradesSelected && getObjects(portal.class).isEmpty()) {
-            
             portal portal = new portal();
-            addObject(portal, getWidth() / 2, getHeight() - getHeight());
+            addObject(portal, getWidth() / 2, getHeight() - getHeight() + 15);
         }
     }
     public void setUpgradesSelected() {

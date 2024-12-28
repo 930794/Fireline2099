@@ -1,9 +1,11 @@
 #Greenfoot project file
+class.Enemy.image=Walk.png
+class.MyWorld.image=file.png
 class.Player.image=baby2.png
-class.bossEnemy.image=bananas.png
-class.bullets.image=ball.png
+class.bossEnemy.image=Idle\ (2).png
+class.bullets.image=8.png
 class.cover.image=1.png
-class.portal.image=car03.png
+class.portal.image=Purple\ Portal\ Sprite\ Sheet.png
 dependency1.from=MyWorld
 dependency1.to=Player
 dependency1.type=UsesDependency
