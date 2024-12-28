@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=portal
-comment0.text=\r\n\ Portal\ class\ for\ level\ transitions.\r\n
 comment1.params=
 comment1.target=void\ act()
 numComments=2
