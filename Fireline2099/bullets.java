@@ -24,6 +24,7 @@ public class bullets extends Entity {
         Actor enemy = getOneIntersectingObject(Enemy.class);
         if (enemy != null) {
             ((Entity) enemy).takeDamage(attack);
+            getWorld().removeObject(this);
         } 
         else if (isAtEdge()) {
             getWorld().removeObject(this);

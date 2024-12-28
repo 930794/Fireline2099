@@ -1,16 +1,47 @@
 import greenfoot.*;
 public class Player extends Entity {
     public int shootCooldown = 20;
+    private GreenfootImage walk1 = new GreenfootImage("walk1.png");
+    private GreenfootImage walk2 = new GreenfootImage("walk2.png");
+    private GreenfootImage idle = new GreenfootImage("idle.png");
+    private int animationFrame = 0;
     public Player(int speed, int health, int attack) {
         this.speed = speed;
         this.health = health;
         this.attack = attack;
+        setImage(idle);
     }
     public void control() {
-        if (Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) move(-speed, 0);
-        if (Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) move(speed, 0);
-        if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")) move(0, -speed);
-        if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s")) move(0, speed);
+        boolean isMoving = false;
+        if (Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) {
+            move(-speed, 0);
+            isMoving = true;
+        }
+        if (Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) {
+            move(speed, 0);
+            isMoving = true;
+        }
+        if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")) {
+            move(0, -speed);
+            isMoving = true;
+        }
+        if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s")) {
+            move(0, speed);
+            isMoving = true;
+        }
+        if (isMoving) {
+            animateWalking();
+        } else {
+            setImage(idle);
+        }
+    }
+    private void animateWalking() {
+        animationFrame++;
+        if (animationFrame % 20 < 10) {
+            setImage(walk1);
+        } else {
+            setImage(walk2);
+        }
     }
     private void autoShoot() {
         if (shootCooldown > 0) {
