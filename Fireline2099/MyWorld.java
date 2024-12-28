@@ -26,40 +26,19 @@ public class MyWorld extends World {
         // Add initial enemies
         for (int i = 0; i < 5; i++) {
             Enemy enemy = new Enemy(2, 100, 1);
-            addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2));
+            addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber((getHeight() / 2) - 1));
             numberofEnemies++;
         }
         placeRandomCovers(); // Add initial covers
     }
 
     public void placeRandomCovers() {
-        // Remove existing covers
         removeObjects(getObjects(cover.class));
-        // Add random cover objects
         for (int i = 0; i < NUM_COVER; i++) {
             cover newCover = new cover();
-            boolean validLocation = false;
-            int attempts = 0;
-
-            // Attempt to find a valid location
-            while (!validLocation && attempts < 100) {
-                int x = Greenfoot.getRandomNumber(getWidth());
-                int y = Greenfoot.getRandomNumber(getHeight() / 4) + getHeight() / 4;
-                addObject(newCover, x, y);
-    
-                // Check for intersection with Enemy
-                if (!newCover.isOverlappingEnemy()) {
-                    validLocation = true;
-                } else {
-                    removeObject(newCover); // Remove and retry
-                }
-    
-                attempts++;
-            }
-        // If no valid location is found after attempts, stop trying
-        if (!validLocation) {
-            System.out.println("Failed to place cover " + i + " without intersection.");
-        }
+            int x = Greenfoot.getRandomNumber(getWidth());
+            int y = Greenfoot.getRandomNumber(getHeight() / 4) + getHeight() / 2;
+            addObject(newCover, x, y);
         }
     }
     public void nextLevel() {
@@ -71,7 +50,7 @@ public class MyWorld extends World {
         // If the stage is a multiple of 5, add a boss
         if (stage % 5 == 0) {
             bossEnemy boss = new bossEnemy(10, 150, 30, special[Greenfoot.getRandomNumber(special.length)]); // Stronger boss stats
-            addObject(boss, getWidth() / 2, 100);
+            addObject(boss, getWidth() / 2, getHeight() - getHeight());
             numberofEnemies++; // Count the boss as an enemy
         }
 
