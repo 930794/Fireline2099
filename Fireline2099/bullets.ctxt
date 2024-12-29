@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=bullets
-comment1.params=speed\ health\ attack
-comment1.target=bullets(int,\ int,\ int)
+comment1.params=speed\ attack
+comment1.target=bullets(int,\ int)
 comment2.params=target
 comment2.target=void\ setTarget(greenfoot.Actor)
 comment3.params=

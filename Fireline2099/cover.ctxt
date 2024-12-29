@@ -1,7 +1,3 @@
 #BlueJ class context
 comment0.target=cover
-comment1.params=
-comment1.target=boolean\ isOverlappingEnemy()
-comment2.params=
-comment2.target=void\ act()
-numComments=3
+numComments=1

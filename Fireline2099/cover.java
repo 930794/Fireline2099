@@ -1,9 +1,5 @@
-import greenfoot.*;  
+import greenfoot.*; 
+
+// Class exists just for graphics
 public class cover extends Actor {
-    public boolean isOverlappingEnemy() {
-        return !getIntersectingObjects(Enemy.class).isEmpty();
-    }
-    public void act() {
-        
-    }
 }
