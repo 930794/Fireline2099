@@ -2,12 +2,11 @@ import greenfoot.*;
 public class MyWorld extends World {
     public static int score;
     public static int numberofEnemies;
-    private int stage = 1;
+    private int stage;
     private String[] special = {"fire.png", "ice.png", "earth.png", "water.png", "wind.png"};
     private boolean upgradesSelected = false;
-    private boolean devMode = true; 
-    private static final int NUM_COVER = 5;
-    Player player = new Player(10, 100, 1000);
+    private boolean devMode = false; 
+    Player player = new Player(10, 100, 50);
     public MyWorld() {    
         super(400, 600, 1);
         populateWorld();
@@ -16,6 +15,7 @@ public class MyWorld extends World {
         addObject(player, getWidth() / 2, getHeight() - 50);
         score = 0;
         numberofEnemies = 0;
+        stage = 1;
         for (int i = 0; i < 5; i++) {
             Enemy enemy = new Enemy(2, 100, 1);
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber((getHeight() / 2) - 1));
@@ -25,7 +25,7 @@ public class MyWorld extends World {
     }
     public void placeRandomCovers() {
         removeObjects(getObjects(cover.class));
-        for (int i = 0; i < NUM_COVER; i++) {
+        for (int i = 0; i < 5; i++) {
             cover newCover = new cover();
             int x = Greenfoot.getRandomNumber(getWidth());
             int y = Greenfoot.getRandomNumber(getHeight() / 4) + getHeight() / 2;
@@ -38,7 +38,7 @@ public class MyWorld extends World {
         player.setLocation(getWidth() / 2, getHeight() - 50);
         placeRandomCovers(); 
         if (stage % 5 == 0) {
-            bossEnemy boss = new bossEnemy(10, 150, 30, special[Greenfoot.getRandomNumber(special.length)]);
+            bossEnemy boss = new bossEnemy(5, 150, 30, special[Greenfoot.getRandomNumber(special.length)]);
             addObject(boss, getWidth() / 2, getHeight() - getHeight());
             numberofEnemies++;
         }
