@@ -6,7 +6,7 @@ public class MyWorld extends World {
     private int stage; // Integer for stage number
     private String[] special = {"fire.png", "ice.png", "earth.png", "water.png", "wind.png"}; // Boss special attack image files
     private boolean upgradesSelected = false; // Boolean to know if an upgrade was selected
-    private boolean devMode = false; // Mode to see player stats for testing
+    private boolean devMode = true; // Mode to see player stats for testing
     Player player = new Player(10, 100, 50); // Create a player with 10 speed, 100 health, and 50 attack
     
     public MyWorld() {    
