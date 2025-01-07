@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 public class SpecialEffect extends Actor {
-    private int duration = 5; // Sets duration of attack to 5 times
+    private int duration = 10; // Sets duration of attack to 5 times
     private int damage; // Special damage instance variable
     
     public SpecialEffect(String imagePath, int damage) { // Constructs special effect object
