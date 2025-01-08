@@ -7,7 +7,7 @@ public class MyWorld extends World {
     private String[] special = {"fire.png", "ice.png", "earth.png", "water.png", "wind.png"}; // Boss special attack image files
     private boolean upgradesSelected = false; // Boolean to know if an upgrade was selected
     private boolean devMode = false; // Mode to see player stats for testing
-    Player player = new Player(10, 100, 50); // Create a player with 10 speed, 100 health, and 50 attack
+    Player player = new Player(5, 100, 50); // Create a player with 10 speed, 100 health, and 50 attack
     
     public MyWorld() {    
         super(400, 600, 1); // Instnatiate a 400x600 world
@@ -71,9 +71,9 @@ public class MyWorld extends World {
         nextStage(); // Proceeds to next stage after portal is used
     }
     public void displayStats() { // Displays user stats near the top of the screen
-        showText("Health: " + player.health, (getWidth() / 2 - 100), 20);
-        showText("Score: " + score, (getWidth() / 2), 20);
-        showText("Stage: " + stage , (getWidth() / 2 + 100), 20);
+        showText("Health: " + player.health, (getWidth() / 2 - 100), 580);
+        showText("Score: " + score, (getWidth() / 2), 580);
+        showText("Stage: " + stage , (getWidth() / 2 + 100), 580);
         if (devMode) { // If dev mode is selected, show more detailed stats
             showText("Speed: " + player.speed, (getWidth() / 2 - 100), 40);
             showText("Attack: " + player.attack, (getWidth() / 2 - 100), 60);
