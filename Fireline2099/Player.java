@@ -92,9 +92,7 @@ public class Player extends Entity {
         attack *= amount; // Add amount to atttack
     }
     public void decreaseShootCooldown(double amount) { // Decrease player cooldown by specified amount
-        if (maxShootCooldown > 1) { // Checks if cooldown is greater than 1
-            maxShootCooldown *= amount; // Reduces max cooldown by amount
-        }
+        maxShootCooldown *= amount; // Reduces max cooldown by amount
     }
     public void heal(double amount) { // Increase player health by specified amount
         health *= amount; // Adds amount to health
