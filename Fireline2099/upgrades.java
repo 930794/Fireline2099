@@ -17,9 +17,9 @@ public class upgrades extends Actor {
     }
     private void applyUpgrade(Player player) { // Applies upgrade depending on upgradeType
         switch (upgradeType) { // Switch statement with 3 cases
-            case 0: player.increaseAttack(50); break; // Increases player attack by 50
-            case 1: player.decreaseShootCooldown(1); break; // Decreases shoot cooldown by a value of 1
-            case 2: player.heal(100); break; // Heals 100 health points
+            case 0: player.increaseAttack(1.25); break; // Increases player attack by 25 percent
+            case 1: player.decreaseShootCooldown(0.90); break; // Decreases shoot cooldown by 10 percent
+            case 2: player.heal(1.25); break; // Increases player health point by 25 percent
         }
     }
     public void act() {

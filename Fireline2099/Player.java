@@ -1,8 +1,8 @@
 import greenfoot.*; 
 
 public class Player extends Entity {
-    public int shootCooldown = 20; // Sets cooldown to shoot to 20
-    private int maxShootCooldown = 20; // Sets max cooldown to shoot to 20 as well
+    public double shootCooldown = 20.0; // Sets cooldown to shoot to 20
+    private double maxShootCooldown = 20.0; // Sets max cooldown to shoot to 20 as well
     private GreenfootImage idle = new GreenfootImage("idle.png"); // Create object with image file for the idle state
     private GreenfootImage[] walkFrames = {new GreenfootImage("walk1.png"),
                                            new GreenfootImage("walk2.png"),
@@ -88,16 +88,16 @@ public class Player extends Entity {
         }
         return nearestEnemy; // Returns the nearest enemy object
     }
-    public void increaseAttack(int amount) { // Increase player attack by specified amount
-        attack += amount; // Add amount to atttack
+    public void increaseAttack(double amount) { // Increase player attack by specified amount
+        attack *= amount; // Add amount to atttack
     }
-    public void decreaseShootCooldown(int amount) { // Decrease player cooldown by specified amount
+    public void decreaseShootCooldown(double amount) { // Decrease player cooldown by specified amount
         if (maxShootCooldown > 1) { // Checks if cooldown is greater than 1
-            maxShootCooldown -= amount; // Reduces max cooldown by amount
+            maxShootCooldown *= amount; // Reduces max cooldown by amount
         }
     }
-    public void heal(int amount) { // Increase player health by specified amount
-        health += amount; // Adds amount to health
+    public void heal(double amount) { // Increase player health by specified amount
+        health *= amount; // Adds amount to health
     }
     public void act() {
         control(); // Adds player control

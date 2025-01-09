@@ -13,7 +13,7 @@ public class bossEnemy extends Enemy {
         if (specialAttackCooldown > 0) { // Checks if cooldown is greater than 0 to reduce timer
             specialAttackCooldown--; // Subtracts 1 from cooldown
         } else { // If cooldown is 0 or less than 0
-            SpecialEffect effect = new SpecialEffect(specialAttackImage, specialDamage); // Creats special attack effect object with the special image
+            SpecialEffect effect = new SpecialEffect(specialAttackImage, specialDamage); // Creates special attack effect object with the special image
             getWorld().addObject(effect, getX(), getY()); // Adds effect to where the boss enemy is
             specialAttackCooldown = 200; // Resets cooldown
         }
