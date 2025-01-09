@@ -7,7 +7,7 @@ public class MyWorld extends World {
     private String[] special = {"fire.png", "ice.png", "earth.png", "water.png", "wind.png"}; // Boss special attack image files
     private boolean upgradesSelected = false; // Boolean to know if an upgrade was selected
     private boolean devMode = true; // Mode to see player stats for testing
-    Player player = new Player(5, 100, 50); // Create a player with 10 speed, 100 health, and 50 attack
+    Player player = new Player(6, 100, 50); // Create a player with 6 speed, 100 health, and 50 attack
     
     public MyWorld() {    
         super(400, 600, 1); // Instnatiate a 400x600 world
@@ -31,7 +31,7 @@ public class MyWorld extends World {
         player.setLocation(getWidth() / 2, getHeight() - 50); // Moves player to starting location
         placeRandomCovers(); // Adds cover around the world
         if (stage % 5 == 0) { // Adds boss enemy every 5 stages
-            bossEnemy boss = new bossEnemy(5, 150, 15, special[Greenfoot.getRandomNumber(special.length)]); // Creates boss enemy with 5 speed, 150 health, and 15 attack, also with random special skill
+            bossEnemy boss = new bossEnemy(4, 150, 15, special[Greenfoot.getRandomNumber(special.length)]); // Creates boss enemy with 4 speed, 150 health, and 15 attack, also with random special skill
             addObject(boss, getWidth() / 2, getHeight() - getHeight()); // Places boss enemy at the top of the screen
             numberofEnemies++; // Increases number of enemies
         }
