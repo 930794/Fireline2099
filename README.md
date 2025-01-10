@@ -4,9 +4,7 @@ Control Player With Arrow Keys Or WASD
 
 Stand Still To Shoot, While Avoiding Enemies
 
-Select Upgrades: 
-
-  Green Is Increased Attack Stat, Yellow Reduces Cooldown, And Red Heals You And Increases Max Health
+Select Upgrades: Green Is Increased Attack Stat, Yellow Reduces Cooldown, And Red Heals You & Increases Max Health
   
 Proceed Through The Levels, Increase Your Score, And Kill A Boss Enemy Every 5 Levels
 
