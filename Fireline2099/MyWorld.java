@@ -10,7 +10,7 @@ public class MyWorld extends World {
     Player player = new Player(6, 100, 50); // Create a player with 6 speed, 100 health, and 50 attack
     
     public MyWorld() {    
-        super(400, 600, 1); // Instnatiate a 400x600 world
+        super(400, 600, 1); // Instantiate a 400x600 world
         populateWorld(); // Populates the world with enemies and the player
     }
     public void populateWorld() { // Starts the world for the first time
@@ -22,7 +22,7 @@ public class MyWorld extends World {
         for (int i = 0; i < 5; i++) { // Create 5 enemies
             Enemy enemy = new Enemy(2, 100, 1); // Creates enemy with 2 speed, 100 health, and 1 attack
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber((getHeight() / 2) - 1)); // Adds enemies randomly near the top half of the world
-            numberofEnemies++; // Increases number of enmies per iteration
+            numberofEnemies++; // Increases number of enemies per iteration
         }
     }
     public void nextStage() { // Prepares the world for the next stage
@@ -38,7 +38,7 @@ public class MyWorld extends World {
         for (int i = 0; i < 5 + stage; i++) { // Creates 5 enemies, plus the stage number (i.e, 6 in stage 1)
             Enemy enemy = new Enemy(2, 100 + stage * 5, 1 + stage * 2); // Creates enemy with 2 speed, 100 (plus 5 times the stage number) health, and 1 (plus 2 times the stage number) attack
             addObject(enemy, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight() / 2)); // Adds enemies randomly near the top half of the world
-            numberofEnemies++; // Increases number of enmies per iteration
+            numberofEnemies++; // Increases number of enemies per iteration
         }
     }
     public void placeRandomCovers() { // Adds cover around the world
@@ -53,7 +53,7 @@ public class MyWorld extends World {
         showText("GAME OVER", getWidth() / 2, getHeight() / 2); // Shows game over in the middle of the screen
         Greenfoot.stop(); // Stops the game
     }
-    public void checkEnemies() { // Checks to see if all enemies are dead to procceed
+    public void checkEnemies() { // Checks to see if all enemies are dead to proceed
         if (numberofEnemies == 0 && !upgradesSelected && getObjects(upgrades.class).isEmpty()) { // Checks to see if enemies are gone, no upgrades were selected, and if there are no objects from the upgrades class
             for (int i = 0; i < 3; i++) { // Creates 3 upgrade choices
                 upgrades upgrade = new upgrades(i); // Creates an ith upgrade choice

@@ -6,7 +6,7 @@ public abstract class Entity extends Actor {
     protected int speed;
     protected int attack;
 
-    public void takeDamage(int damage) { // Selected entity takes damage for specified ammount
+    public void takeDamage(int damage) { // Selected entity takes damage for specified amount
         health -= damage; // Subtracts damage from health
         if (health <= 0) { // If health is less than or equal to 0, the specific entity is removed
             getWorld().removeObject(this); // Removes specific entity

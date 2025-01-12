@@ -60,7 +60,7 @@ public class Player extends Entity {
         animationCounter++; // Increments animation counter
         if (animationCounter % 5 == 0) { // Commences every 5 counts of animationCounter
             setImage(walkFrames[animationFrame]); // Sets image to current animationFrame value
-            animationFrame = (animationFrame++) % walkFrames.length; // Goes to next animation frame, and performes modulo division to just loop through the 6 frames
+            animationFrame = (animationFrame++) % walkFrames.length; // Goes to next animation frame, and performs modulo division to just loop through the 6 frames
         }
     }
     private void autoShoot() { // Automatically shoot when standing still
@@ -90,7 +90,7 @@ public class Player extends Entity {
         return nearestEnemy; // Returns the nearest enemy object
     }
     public void increaseAttack(double amount) { // Increase player attack by specified amount
-        attack *= amount; // Add amount to atttack
+        attack *= amount; // Add amount to attack
     }
     public void decreaseShootCooldown(double amount) { // Decrease player cooldown by specified amount
         maxShootCooldown *= amount; // Reduces max cooldown by amount

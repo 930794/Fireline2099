@@ -5,7 +5,7 @@ public class bossEnemy extends Enemy {
     private String specialAttackImage; // Instance variable to hold special attack image
     private int specialDamage = 10; // Sets special attack damage to 10
     
-    public bossEnemy(int speed, int health, int attack, String specialAttackImage) { // Creats boss enemy with special attack
+    public bossEnemy(int speed, int health, int attack, String specialAttackImage) { // Creates boss enemy with special attack
         super(speed, health, attack); // Calls and reuses enemy constructor class to initialize speed, health, and attack
         this.specialAttackImage = specialAttackImage; 
     }
