@@ -69,7 +69,8 @@ public class Player extends Entity {
         } else { // Shoots when cooldown is less than or equal to zero
             Enemy nearestEnemy = findNearestEnemy(); // Finds nearest enemy object
             if (nearestEnemy != null) { // Checks if the nearest enemy is not void
-                bullets bullet = new bullets(5, attack); // Create a bullet object with 5 speed and attack of current attack value 
+                bullets bullet = new bullets(5, attack); // Create a bullet object with 5 speed and attack of current attack value
+                Greenfoot.playSound("Bullet.mp3"); // Play bullet sound
                 getWorld().addObject(bullet, getX(), getY()); // Adds bullet to where the player is
                 bullet.setTarget(nearestEnemy); // Set the bullet trajectory to closest enemy
                 shootCooldown = maxShootCooldown; // Resets shootCooldown

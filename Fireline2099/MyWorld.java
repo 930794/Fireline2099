@@ -6,7 +6,7 @@ public class MyWorld extends World {
     private int stage; // Integer for stage number
     private String[] special = {"fire.png", "ice.png", "earth.png", "water.png", "wind.png"}; // Boss special attack image files
     private boolean upgradesSelected = false; // Boolean to know if an upgrade was selected
-    private boolean devMode = true; // Mode to see player stats for testing
+    private boolean devMode = false; // Mode to see player stats for testing
     Player player = new Player(6, 100, 50); // Create a player with 6 speed, 100 health, and 50 attack
     
     public MyWorld() {    
@@ -49,8 +49,9 @@ public class MyWorld extends World {
         }
     }
     public void gameOver() { // Game over screen
+        Greenfoot.playSound("Death.mp3"); // Plays player death sound
         showText("GAME OVER", getWidth() / 2, getHeight() / 2); // Shows game over in the middle of the screen
-        Greenfoot.stop(); // Stops game
+        Greenfoot.stop(); // Stops the game
     }
     public void checkEnemies() { // Checks to see if all enemies are dead to procceed
         if (numberofEnemies == 0 && !upgradesSelected && getObjects(upgrades.class).isEmpty()) { // Checks to see if enemies are gone, no upgrades were selected, and if there are no objects from the upgrades class
@@ -64,10 +65,12 @@ public class MyWorld extends World {
         }
     }
     public void setUpgradesSelected() { // Sets upgradesSelected as true when user selects an upgrade
+        Greenfoot.playSound("Skill.mp3"); // Play skill selection sound
         upgradesSelected = true;
     }
-    public void removePortal(portal portal) { // Removes portal after user uses it
-        removeObject(portal); 
+    public void removePortal(portal portal) { // Removes portal after player uses it
+        Greenfoot.playSound("Portal.mp3"); // Play portal usage sound
+        removeObject(portal);
         nextStage(); // Proceeds to next stage after portal is used
     }
     public void displayStats() { // Displays user stats near the top of the screen

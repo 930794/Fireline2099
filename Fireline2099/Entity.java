@@ -8,9 +8,10 @@ public abstract class Entity extends Actor {
 
     public void takeDamage(int damage) { // Selected entity takes damage for specified ammount
         health -= damage; // Subtracts damage from health
-        if (health <= 0) { // If health is less than 0 the specific entity is removed
+        if (health <= 0) { // If health is less than or equal to 0, the specific entity is removed
             getWorld().removeObject(this); // Removes specific entity
             if (this instanceof Enemy || this instanceof bossEnemy) { // Checks to see if specific entity is an enemy or boss enemy
+                Greenfoot.playSound("EnemyDeath.mp3"); // Play enemy death sound
                 MyWorld.numberofEnemies--; // Reduces number of enemies
                 MyWorld.score++; // Increases user score
             }
